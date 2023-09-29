@@ -1,23 +1,40 @@
-# Template para avaliação P2
+# Relatório de Atividade - Configuração de Aplicação na AWS
 
-Saída esperada após execução do programa:
+## Descrição da Atividade
 
-<img src="./media/tela-front.png" display="flex">
+Configuração uma aplicação na AWS que inclui um servidor de aplicação EC2 e um banco de dados RDS.
 
-# IMPORTANTE:
+### Serviços e Recursos Utilizados
 
-Para colocar o frontend para funcionar, colocar uma máquina EC2 rodando o Apache WebServer.
-Para isso, instalar dentro da EC2:
+- **Amazon EC2**: 2 instâncias EC2 como servidor de aplicação e frontend para o cliente.
 
-```bash
-sudo apt update
-sudo apt upgrade
-sudo apt install apache2
-# os arquivos do projeto devem estar em /var/www/html
-git clone https://github.com/Murilo-ZC/Avaliacao-P2-M7-2023-EC.git
-sudo cp ./Avaliacao-P2-M7-2023-EC/frontend /var/www/html
-```
+- **Amazon RDS**: banco de dados PostgreSql no Amazon RDS para armazenar dados da aplicação.
 
-Aqui pessoal, os arquivos já estaram disponíveis na porta 80, não necessário redirecionar.
+- **Amazon Security Groups**: Precisei criar grupos de segurança para controlar o tráfego de entrada e saída para as instâncias EC2 e RDS.
 
-> IMPORTANTE: Verificar as rotas e utilziar o seu próprio repositório com as modificações realizadas.
+### Configurações de Segurança
+
+- Configurei grupos de segurança para liberar o tráfego de rede para instâncias EC2 e RDS destinada a aplicação necessária.
+### Etapas Realizadas
+
+1. **Configuração do Amazon RDS**:
+   - Foi criado um banco de dados PostgreSQL no RDS.
+   - Coletei as informações de conexão, incluindo o endpoint, nome de usuário e senha, para em seguida testar no DBeaver.
+
+2. **Configuração do Amazon EC2**:
+    - Configurei uma instância EC2 com uma imagem de sistema operacional Amazon Linux para o backend com FastApi.
+    - Configurei uma instância EC2 com uma imagem de sistema operacional Amazon Linux para o front para ser acessado por meio de um servidor apache.
+
+3. **Configuração da Aplicação**:
+   - Acessei por meio do proprio terminal da aws.
+   - Foi instalado e configurado o docker para receber a imagem do back e apache para o front.
+   - Incrementei os arquivo do back e front conforme no repositorio para aceitar as novas configuracões de conexão.
+
+### Desafios Enfrentados
+
+- Não consegui fazer funcionar.
+
+
+## Capturas de Tela
+
+Anexei algumas capturas de tela relevantes para demonstrar a configuração das instâncias EC2, RDS nos anexos do forms.
