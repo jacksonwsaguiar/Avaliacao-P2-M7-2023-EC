@@ -1,11 +1,11 @@
 import psycopg2
 
 # Constantes
-DB_USER = "meuuserawsrds"
-DB_PASSWORD = "postgres"
-DB_HOST = "database-postgres.c36tibwlwhak.us-east-1.rds.amazonaws.com"
+DB_USER = "postgres"
+DB_PASSWORD = "inteli1234"
+DB_HOST = "database-2-instance-1.chioccguktu4.us-east-2.rds.amazonaws.com"
 DB_PORT = "5432"
-DB_NAME = "postgres"
+DB_NAME = "prova"
 
 # Conexão com o banco
 con = psycopg2.connect(

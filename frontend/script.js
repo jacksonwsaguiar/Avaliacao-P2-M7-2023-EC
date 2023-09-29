@@ -1,10 +1,11 @@
+var PUBLICIP = "13.58.68.126";
 function addTask() {
   const taskInput = document.getElementById("taskInput");
   const taskText = taskInput.value.trim();
 
   if (taskText !== "") {
     //Realizar um POST com fetch para enviar os dados para o backend
-    fetch("http://3.95.1.63/create_note", {
+    fetch("http://" + PUBLICIP + "/create_note", {
       method: "POST",
       body: JSON.stringify({
         titulo: `Minha Nota`,
@@ -26,7 +27,7 @@ function getTasks() {
   const taskList = document.getElementById("taskList");
   //Limpa a lista
   taskList.innerHTML = "";
-  fetch("http://3.95.1.63/notes")
+  fetch("http://" + PUBLICIP + "/notes")
     .then((response) => response.json())
     .then((data) => {
       data["data"].forEach((task) => {
@@ -56,13 +57,13 @@ function getTasks() {
     });
 }
 
-function deleteTask(id){
-  fetch(`http://3.95.1.63/delete_note/`, {
+function deleteTask(id) {
+  fetch(`http://${PUBLICIP}/delete_note/`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify({id: id})
+    body: JSON.stringify({ id: id }),
   })
     .then((response) => response.json())
     .then((json) => {
